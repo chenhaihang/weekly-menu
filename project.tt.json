@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "weekly-menu",
+  "description": "weekly-menu",
+  "appid": "wxcec36b965166329d",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
