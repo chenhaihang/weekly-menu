@@ -1,5 +1,6 @@
 import Components from 'unplugin-vue-components/webpack';
 import NutUIResolver from '@nutui/auto-import-resolver';
+import { cache } from 'webpack';
 const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss/webpack')
 const config = {
   projectName: 'weekly-menu',
@@ -109,6 +110,9 @@ const config = {
         }
       }
     }
+  },
+  cache: {
+    enable: true
   }
 }
 
