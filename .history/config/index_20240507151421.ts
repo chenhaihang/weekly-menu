@@ -1,10 +1,10 @@
 import Components from 'unplugin-vue-components/webpack';
 import NutUIResolver from '@nutui/auto-import-resolver';
-const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss/webpack')
+
 const config = {
   projectName: 'weekly-menu',
   date: '2024-5-7',
-  designWidth(input) {
+  designWidth (input) {
     if (input?.file?.replace(/\\+/g, '/').indexOf('@nutui') > -1) {
       return 375
     }
@@ -32,7 +32,7 @@ const config = {
     type: 'webpack5',
     prebundle: { enable: false }
   },
-  sass: {
+  sass:{
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
   },
   mini: {
@@ -45,26 +45,13 @@ const config = {
           })
         ]
       }))
-      chain.merge({
-        plugin: {
-          install: {
-            plugin: UnifiedWebpackPluginV5,
-            args: [{
-              appType: 'taro'
-            }]
-          }
-        }
-      })
     },
     postcss: {
       pxtransform: {
         enable: true,
         config: {
-          removeCursorStyle: false,
-        },
-        // config: {
-        //   // selectorBlackList: ['nut-']
-        // }
+          // selectorBlackList: ['nut-']
+        }
       },
       url: {
         enable: true,

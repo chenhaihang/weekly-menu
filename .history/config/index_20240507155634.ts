@@ -60,11 +60,8 @@ const config = {
       pxtransform: {
         enable: true,
         config: {
-          removeCursorStyle: false,
-        },
-        // config: {
-        //   // selectorBlackList: ['nut-']
-        // }
+          // selectorBlackList: ['nut-']
+        }
       },
       url: {
         enable: true,
