@@ -1,7 +1,7 @@
 import Components from 'unplugin-vue-components/webpack';
 import NutUIResolver from '@nutui/auto-import-resolver';
-import { cache } from 'webpack';
 const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss/webpack')
+import path from 'path';
 const config = {
   projectName: 'weekly-menu',
   date: '2024-5-7',
@@ -10,6 +10,9 @@ const config = {
       return 375
     }
     return 750
+  },
+  defineConstants: {
+    APP_ID: 'wxcec36b965166329d',
   },
   deviceRatio: {
     640: 2.34 / 2,
@@ -20,7 +23,9 @@ const config = {
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: ['@tarojs/plugin-html'],
-  defineConstants: {
+  alias: {
+    '@/pages': path.resolve(__dirname, '..', 'src/pages'),
+    // '@/*': path.resolve(__dirname, '..', 'src/*'),
   },
   copy: {
     patterns: [

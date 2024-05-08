@@ -20,3 +20,6 @@ declare namespace NodeJS {
 declare module '@tarojs/components' {
   export * from '@tarojs/components/types/index.vue3'
 }
+
+declare const APP_ID: string;
+declare const ENV_VERSION: string;
