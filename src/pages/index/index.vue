@@ -24,27 +24,25 @@ const count = ref(0);
 
 const List = [
   {
-    title: 'Home',
-    icon: h(Home),
-  },
-  {
-    title: 'Category',
-    icon: h(Category),
-  },
-  {
-    title: 'Find',
-    icon: h(Find),
-  },
-  {
-    title: 'Cart',
+    title: '菜谱',
     icon: h(Cart),
   },
   {
-    title: 'My',
+    title: '发现',
+    icon: h(Find),
+  },
+
+  {
+    title: '我的',
     icon: h(My),
   },
 ];
 const active = ref(0);
+getMenuButton();
+function getMenuButton() {
+  const res = wx.getMenuButtonBoundingClientRect();
+  console.log('🚀 ~ file: index.vue:44 ~ getMenuButton ~ res:', res);
+}
 </script>
 
 <style>
