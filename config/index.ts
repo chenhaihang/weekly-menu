@@ -22,9 +22,10 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: ['@tarojs/plugin-html'],
+  plugins: ['@tarojs/plugin-html', 'taro-plugin-pinia'],
   alias: {
     '@/pages': path.resolve(__dirname, '..', 'src/pages'),
+    '@/stores': path.resolve(__dirname, '..', 'src/stores'),
     // '@/*': path.resolve(__dirname, '..', 'src/*'),
   },
   copy: {

@@ -1,7 +1,8 @@
 <template>
   <view class="app">
     <view class="app-content">
-      <MyIndex v-if="active === 0"></MyIndex>
+      <MenuIndex v-if="active === 0"></MenuIndex>
+      <MyIndex v-if="active === 2"></MyIndex>
     </view>
     <nut-tabbar v-model="active" bottom safe-area-inset-bottom placeholder>
       <nut-tabbar-item
@@ -20,6 +21,8 @@
 import { ref, h } from 'vue';
 import { Home, Category, Find, Cart, My } from '@nutui/icons-vue-taro';
 import MyIndex from '@/pages/my/index.vue';
+import MenuIndex from '@/pages/menu/index.vue';
+
 const count = ref(0);
 
 const List = [
