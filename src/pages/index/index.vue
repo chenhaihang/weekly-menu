@@ -41,11 +41,6 @@ const List = [
   },
 ];
 const active = ref(0);
-getMenuButton();
-function getMenuButton() {
-  const res = wx.getMenuButtonBoundingClientRect();
-  console.log('🚀 ~ file: index.vue:44 ~ getMenuButton ~ res:', res);
-}
 </script>
 
 <style>
