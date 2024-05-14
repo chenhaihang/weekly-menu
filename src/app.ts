@@ -15,6 +15,11 @@ function login() {
 
 function getMenuButton() {
   const res = wx.getMenuButtonBoundingClientRect();
+  const systemInfo = wx.getSystemInfoSync();
+  console.log("🚀 ~ file: app.ts:19 ~ getMenuButton ~ SystemInfo:", systemInfo)
+  console.log("🚀 ~ file: app.ts:18 ~ getMenuButton ~ res:", res)
+  userStore.setMenuButton(res)
+  userStore.setSystemInfo(systemInfo)
 }
 const App = createApp({
 
@@ -28,6 +33,6 @@ const App = createApp({
   // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
 })
 App.use(createPinia())
-const store = useUserStore();
+const userStore = useUserStore();
 
 export default App

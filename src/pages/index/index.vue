@@ -43,12 +43,15 @@ const List = [
 const active = ref(0);
 </script>
 
-<style>
+<style scope lang="scss">
 .app {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .app-content {
+    height: 100%;
+  }
 }
 </style>
