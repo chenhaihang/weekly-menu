@@ -45,13 +45,14 @@ const active = ref(0);
 
 <style scope lang="scss">
 .app {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   .app-content {
-    height: 100%;
+    height: calc(100% - var(--nut-tabbar-height));
+    overflow: hidden;
+    background-color: green;
   }
 }
 </style>

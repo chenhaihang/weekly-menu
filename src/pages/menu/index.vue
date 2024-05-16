@@ -25,7 +25,6 @@
     <div
       class="menu-container"
       :style="{
-        height: userStore.menuButton.bottom + 'px',
         marginTop: userStore.menuButton.bottom + 'px',
       }"
     >
@@ -99,7 +98,7 @@ onMounted(() => {
     }
   }
   .menu-container {
-    padding: 30px;
+    padding: 30px 0;
   }
 }
 </style>

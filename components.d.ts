@@ -10,5 +10,7 @@ declare module 'vue' {
     NutCategory: typeof import('@nutui/nutui-taro')['Category']
     NutCategoryPane: typeof import('@nutui/nutui-taro')['CategoryPane']
     NutSearchbar: typeof import('@nutui/nutui-taro')['Searchbar']
+    NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
+    NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
   }
 }

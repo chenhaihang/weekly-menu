@@ -118,7 +118,7 @@ const config = {
     }
   },
   cache: {
-    enable: true
+    enable: false
   }
 }
 

@@ -3,7 +3,7 @@ import './app.scss'
 import { createPinia } from 'pinia'
 import Taro from '@tarojs/taro';
 import { useUserStore } from './stores/user';
-
+import "@nutui/nutui-taro/dist/style.css";
 
 function login() {
   Taro.login({
