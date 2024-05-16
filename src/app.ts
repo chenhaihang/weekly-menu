@@ -4,7 +4,6 @@ import { createPinia } from 'pinia'
 import Taro from '@tarojs/taro';
 import { useUserStore } from './stores/user';
 import "@nutui/nutui-taro/dist/style.css";
-
 function login() {
   Taro.login({
     success: function (res) {
@@ -14,8 +13,8 @@ function login() {
 }
 
 function getMenuButton() {
-  const res = wx.getMenuButtonBoundingClientRect();
-  const systemInfo = wx.getSystemInfoSync();
+  const res = Taro.getMenuButtonBoundingClientRect();
+  const systemInfo = Taro.getSystemInfoSync();
   console.log("🚀 ~ file: app.ts:19 ~ getMenuButton ~ SystemInfo:", systemInfo)
   console.log("🚀 ~ file: app.ts:18 ~ getMenuButton ~ res:", res)
   userStore.setMenuButton(res)

@@ -17,9 +17,8 @@ interface MenuButton {
 
 interface SystemInfo {
   screenHeight: number
-  screenTop: number
   screenWidth: number
-  statusBarHeight: number
+  statusBarHeight?: number
   system: string
 }
 
@@ -36,7 +35,6 @@ export const useUserStore = defineStore('user', {
     },
     systemInfo: {
       screenHeight: 0,
-      screenTop: 0,
       screenWidth: 0,
       statusBarHeight: 0,
       system: ''

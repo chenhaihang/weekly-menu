@@ -162,6 +162,14 @@ const categoryData = {
           showPic: true,
           showVideo: false,
         },
+        {
+          backImg:
+            'https://m.360buyimg.com/n2/jfs/t1/51415/33/16609/122207/61397309E88c81fbc/7c38686c1f2ffb84.jpg',
+          catId: '12200',
+          catName: '蜂蜜/柚子茶',
+          showPic: true,
+          showVideo: false,
+        },
       ],
       showPic: true,
       showVideo: false,

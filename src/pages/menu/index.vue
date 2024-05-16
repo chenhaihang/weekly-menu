@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+  <div class="menu" :style="{ paddingBottom: actionContainerRefHeight + 'px' }">
     <div
       class="top-container"
       :style="{
@@ -25,7 +25,7 @@
     <div
       class="menu-container"
       :style="{
-        marginTop: userStore.menuButton.bottom + 'px',
+        paddingTop: userStore.menuButton.bottom + 'px',
       }"
     >
       <nut-category :category="data.category" @change="change">
@@ -36,17 +36,23 @@
         </nut-category-pane>
       </nut-category>
     </div>
+    <div class="action-container" id="actionContainerId">
+      <nut-button type="default">分类管理</nut-button>
+      <nut-button type="primary">添加商品</nut-button>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
 // ------import------
 import { ref, reactive, onMounted } from 'vue';
+import Taro from '@tarojs/taro';
 import { useUserStore } from '@/stores/user';
 import categoryData1 from './categoryData.js';
 // ------props------
 // ------data------
 const userStore = useUserStore();
 const searchValue = ref('');
+const actionContainerRefHeight = ref(0);
 
 const data = reactive({
   categoryInfo: {},
@@ -75,6 +81,17 @@ const onChange = () => {
 };
 // ------lifecycle hooks------
 onMounted(() => {
+  Taro.createSelectorQuery()
+    .select('#actionContainerId')
+    .boundingClientRect()
+    .exec((res) => {
+      console.log(res);
+      const height = res[0]?.height;
+      if (height) {
+        // height 取整
+        actionContainerRefHeight.value = height;
+      }
+    });
   setTimeout(() => {
     getData();
   }, 500);
@@ -82,6 +99,9 @@ onMounted(() => {
 </script>
 <style scope lang="scss">
 .menu {
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
   .top-container {
     background-color: #fff;
     position: fixed;
@@ -95,10 +115,33 @@ onMounted(() => {
     left: 0;
     .nut-searchbar {
       padding-bottom: 0;
+      padding-top: 0;
     }
   }
   .menu-container {
-    padding: 30px 0;
+    padding: 30rpx 0;
+    height: 100%;
+    overflow: scroll;
+    box-sizing: border-box;
+  }
+  .action-container {
+    background-color: #fff;
+    padding: 30rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    button {
+      box-sizing: border-box;
+      flex-grow: 1;
+      &:not(:nth-last-child(1)) {
+        margin-right: 30rpx;
+      }
+    }
   }
 }
 </style>

@@ -50,9 +50,9 @@ const active = ref(0);
   align-items: center;
   justify-content: center;
   .app-content {
-    height: calc(100% - var(--nut-tabbar-height));
-    overflow: hidden;
-    background-color: green;
+    height: calc(
+      100vh - var(--nut-tabbar-height) - env(safe-area-inset-bottom)
+    );
   }
 }
 </style>
