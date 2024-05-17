@@ -45,8 +45,8 @@
 <script setup lang="ts">
 // ------import------
 import { ref, reactive, onMounted } from 'vue';
-import Taro from '@tarojs/taro';
 import { useUserStore } from '@/stores/user';
+import Taro from '@tarojs/taro';
 import categoryData1 from './categoryData.js';
 // ------props------
 // ------data------
