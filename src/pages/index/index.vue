@@ -51,7 +51,7 @@ const active = ref(0);
   justify-content: center;
   .app-content {
     height: calc(
-      100vh - var(--nut-tabbar-height) - env(safe-area-inset-bottom)
+      100vh - var(--nut-tabbar-height) - env(safe-area-inset-bottom) - 6rpx
     );
   }
 }

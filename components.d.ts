@@ -7,9 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    MiniCategory: typeof import('./src/components/mini-category.vue')['default']
+    MiniCategoryPane: typeof import('./src/components/mini-category-pane.vue')['default']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
-    NutCategory: typeof import('@nutui/nutui-taro')['Category']
-    NutCategoryPane: typeof import('@nutui/nutui-taro')['CategoryPane']
     NutSearchbar: typeof import('@nutui/nutui-taro')['Searchbar']
     NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
     NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']

@@ -26,6 +26,7 @@ const config = {
   alias: {
     '@/pages': path.resolve(__dirname, '..', 'src/pages'),
     '@/stores': path.resolve(__dirname, '..', 'src/stores'),
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
     // '@/*': path.resolve(__dirname, '..', 'src/*'),
   },
   copy: {
