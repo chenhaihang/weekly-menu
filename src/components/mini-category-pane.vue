@@ -20,7 +20,12 @@
         v-for="product in category.products"
         :key="product.id"
       >
-        {{ product.name }}
+        <view class="product-image"> 图片占位 </view>
+        <view class="product-tips">
+          <view class="product-name">{{ product.name }}</view>
+          <view class="product-tag">{{ product.tag }}</view>
+          <view class="product-sales">月销{{ product.sales }}</view>
+        </view>
       </view>
     </view>
   </scroll-view>
@@ -99,5 +104,18 @@ const onScroll = (e) => {
 
 .product-item {
   padding: 5px 0;
+  display: flex;
+  .product-image {
+    width: 150px;
+    height: 150px;
+    background-color: gray;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  .product-tips {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 </style>
