@@ -27,6 +27,7 @@ const config = {
     '@/pages': path.resolve(__dirname, '..', 'src/pages'),
     '@/stores': path.resolve(__dirname, '..', 'src/stores'),
     '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/style': path.resolve(__dirname, '..', 'src/style'),
     // '@/*': path.resolve(__dirname, '..', 'src/*'),
   },
   copy: {
@@ -41,6 +42,7 @@ const config = {
     prebundle: { enable: false }
   },
   sass: {
+    resource: [path.resolve(__dirname, '..', 'src/style')],
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
   },
   mini: {

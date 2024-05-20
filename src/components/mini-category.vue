@@ -60,11 +60,22 @@ function clickCategory(index) {
 }
 
 .mini-category .category-item {
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
 }
 
 .mini-category .category-item.active {
-  background: #007aff;
-  color: #fff;
+  position: relative;
+  background-color: #fff;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 8rpx;
+    height: 30rpx;
+    background: $primary-color;
+  }
 }
 </style>
