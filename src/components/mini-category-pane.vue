@@ -33,6 +33,7 @@ import { useUserStore } from '@/stores/user';
 const props = defineProps({
   categories: Array,
   scrollIntoView: String,
+  scrollToCategory: Boolean,
 });
 const scrollTop = ref(0);
 const userStore = useUserStore();
@@ -65,10 +66,11 @@ const calculateCategoryHeights = () => {
 const onScroll = (e) => {
   console.log(
     '🚀 ~ file: ProductList.vue:59 ~ onScroll ~ e:',
-    e.detail,
+    e,
     categoryHeights.value,
     userStore.menuButton.bottom
   );
+  if (props.scrollToCategory) return;
   const _scrollTop = e.detail.scrollTop;
   const actuallyTop = _scrollTop + userStore.menuButton.bottom;
   for (let i = 0; i < categoryHeights.value.length; i++) {

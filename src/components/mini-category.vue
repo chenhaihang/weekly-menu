@@ -26,6 +26,7 @@ const props = defineProps({
   categories: Array,
 });
 const activeCategory = defineModel('activeCategory');
+const scrollToCategory = defineModel('scrollToCategory');
 
 const userStore = useUserStore();
 
@@ -33,6 +34,11 @@ const emit = defineEmits(['update:activeCategory', 'click-tab']);
 
 function clickCategory(index) {
   activeCategory.value = index;
+  scrollToCategory.value = true;
+  setTimeout(() => {
+    scrollToCategory.value = false;
+  }, 500);
+
   emit('click-tab', index);
 }
 </script>

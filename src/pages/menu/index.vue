@@ -31,11 +31,13 @@
       <mini-category
         :categories="categories"
         v-model:activeCategory="activeCategory"
+        v-model:scrollToCategory="scrollToCategory"
         @click-tab="clickTab"
       >
         <mini-category-pane
           :categories="categories"
           :scroll-into-view="scrollIntoView"
+          :scrollToCategory="scrollToCategory"
           @scroll="updateActiveCategory"
         />
       </mini-category>
@@ -48,7 +50,7 @@
 </template>
 <script setup lang="ts">
 // ------import------
-import { ref, reactive, onMounted, watch } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import { useUserStore } from '@/stores/user';
 import Taro from '@tarojs/taro';
 import MiniCategory from '@/components/mini-category.vue';
@@ -114,6 +116,7 @@ const categories = ref([
   // 添加更多分类和商品
 ]);
 
+const scrollToCategory = ref(false);
 const activeCategory = ref(0);
 const scrollIntoView = ref('');
 
