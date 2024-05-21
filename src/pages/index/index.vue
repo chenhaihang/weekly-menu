@@ -23,8 +23,6 @@ import { Home, Category, Find, Cart, My } from '@nutui/icons-vue-taro';
 import MyIndex from '@/pages/my/index.vue';
 import MenuIndex from '@/pages/menu/index.vue';
 
-const count = ref(0);
-
 const List = [
   {
     title: '菜谱',
@@ -40,7 +38,7 @@ const List = [
     icon: h(My),
   },
 ];
-const active = ref(0);
+const active = ref(2);
 </script>
 
 <style scope lang="scss">
