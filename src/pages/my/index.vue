@@ -5,17 +5,23 @@
       :style="{
         paddingTop: userStore.menuButton.bottom + 'px',
       }"
-    ></div>
-    <div class="user-info-container">
-      <div class="left">
-        <div class="avatar">头像</div>
-        <div class="user-info">
-          <div class="username">用户名</div>
-          <div class="user-tag">用户标签</div>
+    >
+      <div class="user-info-container">
+        <div class="left">
+          <div class="avatar">头像</div>
+          <div class="user-info">
+            <div class="username">用户名</div>
+            <div class="user-tag">用户标签</div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="sign-in-btn text-base">签到</div>
         </div>
       </div>
-      <div class="right">
-        <div class="sign-in-btn text-base">签到</div>
+      <div class="menu-action-container"></div>
+      <div class="user-store-container"></div>
+      <div class="system-tool-container">
+        <div class="tool-item"></div>
       </div>
     </div>
   </div>
@@ -28,6 +34,13 @@ import { useUserStore } from '@/stores/user';
 // ------data------
 const userStore = useUserStore();
 
+const tools = [
+  {
+    name: '我的订单',
+    icon: 'icon-dingdan',
+    action: () => {},
+  },
+];
 // ------computed------
 // ------watch------
 // ------methods------
