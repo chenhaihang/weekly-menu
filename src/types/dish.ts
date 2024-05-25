@@ -5,7 +5,7 @@ export interface Category {
 }
 export interface Dish {
   category_id: number
-  dish_id: string
+  dish_id: number
   dish_name: string
   dish_price: number
   dish_monthSales: number

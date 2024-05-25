@@ -4,11 +4,11 @@
       <div
         v-for="(category, index) in categories"
         :key="category.id"
-        class="category-item"
+        class="category-item text-base"
         :class="{ active: activeCategory === index }"
         @click="clickCategory(index)"
       >
-        {{ category.name }}
+        {{ category.category_name }}
       </div>
     </div>
     <div class="category-right">
@@ -69,6 +69,8 @@ function clickCategory(index) {
 .mini-category .category-item.active {
   position: relative;
   background-color: #fff;
+  color: var(--nut-primary-color);
+  font-weight: 600;
   &::before {
     content: '';
     position: absolute;

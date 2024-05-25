@@ -10,40 +10,61 @@
   >
     <view
       v-for="(category, index) in categories"
-      :key="category.id"
+      :key="category.category_id"
       :id="'category' + index"
       class="category-section"
     >
-      <view class="category-title">{{ category.name }}</view>
+      <view class="category-title text-sm mb-2 font-medium">{{
+        category.category_name
+      }}</view>
       <view
-        class="product-item"
-        v-for="product in category.products"
-        :key="product.id"
+        class="dish-item"
+        v-for="dish in category.category_dishes"
+        :key="dish.dish_id"
       >
-        <view class="product-image"> 图片占位 </view>
-        <view class="product-tips">
-          <view class="product-name">{{ product.name }}</view>
-          <view class="product-tag">{{ product.tag }}</view>
-          <view class="product-sales">月销{{ product.sales }}</view>
+        <view class="dish-image">
+          <image :src="dish.dish_image_url" alt="" srcset="" />
+        </view>
+        <view class="dish-tips">
+          <view class="dish-name font-bold mb-2 text-base">{{
+            dish.dish_name
+          }}</view>
+          <view class="dish-ingredient-container">
+            <view
+              class="dish-ingredient text-sm"
+              v-for="ingredient in dish.dish_ingredients"
+            >
+              {{ ingredient.name }}
+            </view>
+          </view>
+          <view class="dish-sales text-sm">月销{{ dish.dish_monthSales }}</view>
         </view>
       </view>
     </view>
   </scroll-view>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue';
+import type { PropType } from 'vue';
 import Taro from '@tarojs/taro';
 import { useUserStore } from '@/stores/user';
+import { Category } from '@/types/dish';
 const props = defineProps({
-  categories: Array,
+  categories: {
+    type: Array as PropType<Category[]>,
+  },
   scrollIntoView: String,
   scrollToCategory: Boolean,
 });
 const scrollTop = ref(0);
 const userStore = useUserStore();
 const emit = defineEmits(['scroll']);
-const categoryHeights = ref([]); // 保存每个分类的高度
+type CategoryHeights = {
+  top: number;
+  height: number;
+};
+const categoryHeights = ref([] as CategoryHeights[]); // 保存每个分类的高度
 onMounted(() => {
   nextTick(() => {
     calculateCategoryHeights();
@@ -51,6 +72,7 @@ onMounted(() => {
 });
 
 const calculateCategoryHeights = () => {
+  if (!props.categories) return;
   const query = Taro.createSelectorQuery();
   props.categories.forEach((_, index) => {
     query.select(`#category${index}`).boundingClientRect();
@@ -90,6 +112,7 @@ const onScroll = (e) => {
 
 <style scope lang="scss">
 .mini-category-pane {
+  background-color: #fff;
   height: 100%;
 }
 
@@ -97,25 +120,37 @@ const onScroll = (e) => {
   padding: 10px;
 }
 
-.category-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.product-item {
+.dish-item {
   padding: 5px 0;
   display: flex;
-  .product-image {
-    width: 150px;
-    height: 150px;
+  .dish-image {
+    width: 180px;
+    height: 180px;
     background-color: gray;
     border-radius: 10px;
     margin-right: 10px;
+    image {
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+    }
   }
-  .product-tips {
+  .dish-tips {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  .dish-ingredient-container {
+    display: flex;
+    .dish-ingredient {
+      padding: 3px 5px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }
 </style>

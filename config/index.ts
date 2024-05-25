@@ -28,7 +28,7 @@ const config = {
     '@/stores': path.resolve(__dirname, '..', 'src/stores'),
     '@/components': path.resolve(__dirname, '..', 'src/components'),
     '@/style': path.resolve(__dirname, '..', 'src/style'),
-    // '@/*': path.resolve(__dirname, '..', 'src/*'),
+    '@/type': path.resolve(__dirname, '..', 'src/type'),
   },
   copy: {
     patterns: [

@@ -1,7 +1,7 @@
 <template>
   <view class="app">
     <view class="app-content">
-      <MenuIndex v-if="active === 0"></MenuIndex>
+      <DishIndex v-if="active === 0"></DishIndex>
       <MyIndex v-if="active === 2"></MyIndex>
     </view>
     <nut-tabbar v-model="active" bottom safe-area-inset-bottom placeholder>
@@ -21,7 +21,7 @@
 import { ref, h } from 'vue';
 import { Home, Category, Find, Cart, My } from '@nutui/icons-vue-taro';
 import MyIndex from '@/pages/my/index.vue';
-import MenuIndex from '@/pages/menu/index.vue';
+import DishIndex from '@/pages/dish/index.vue';
 
 const List = [
   {
@@ -29,7 +29,7 @@ const List = [
     icon: h(Cart),
   },
   {
-    title: '发现',
+    title: '广场',
     icon: h(Find),
   },
 
@@ -38,7 +38,7 @@ const List = [
     icon: h(My),
   },
 ];
-const active = ref(2);
+const active = ref(0);
 </script>
 
 <style scope lang="scss">

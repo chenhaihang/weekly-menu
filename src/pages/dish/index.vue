@@ -1,9 +1,9 @@
 <template>
-  <div class="menu" :style="{ paddingBottom: actionContainerRefHeight + 'px' }">
+  <div class="dish" :style="{ paddingBottom: actionContainerRefHeight + 'px' }">
     <div
       class="top-container"
       :style="{
-        height: userStore.menuButton.bottom + 'px',
+        height: userStore.menuButton.bottom + 10 + 'px',
       }"
     >
       <div
@@ -18,14 +18,21 @@
           placeholder="请输入要查找的菜谱"
           @search="searchBtn"
         >
-          <template #rightout>搜索</template>
+          <template #rightin>
+            <div
+              class="search-btn px-2 py-0.5 text-sm rounded-3xl"
+              @click="searchBtn"
+            >
+              搜索
+            </div>
+          </template>
         </nut-searchbar>
       </div>
     </div>
     <div
-      class="menu-container"
+      class="dish-container"
       :style="{
-        paddingTop: userStore.menuButton.bottom + 'px',
+        paddingTop: userStore.menuButton.bottom + 10 + 'px',
       }"
     >
       <mini-category
@@ -55,7 +62,7 @@ import { useUserStore } from '@/stores/user';
 import Taro from '@tarojs/taro';
 import MiniCategory from '@/components/mini-category.vue';
 import MiniCategoryPane from '@/components/mini-category-pane.vue';
-import { Category } from '@/types/menu.ts';
+import { Category } from '@/types/dish';
 const categories = ref([
   {
     category_id: 1,
@@ -64,6 +71,30 @@ const categories = ref([
       {
         dish_id: 1,
         category_id: 1,
+        dish_name: '番茄炒蛋',
+        dish_price: 18,
+        dish_monthSales: 100,
+        dish_kal: 1100,
+        dish_image_url: 'https://img.yzcdn.cn/vant/apple-2.jpg',
+        dish_description: '这是一条菜品描述',
+        dish_notes: '这是一条备注',
+        dish_created_at: '2024-01-01 12:34:52',
+        dish_updated_at: '2024-04-01 12:34:52',
+        dish_rating: 5,
+        dish_ingredients: [
+          { name: '番茄', quantity: 100 },
+          { name: '鸡蛋', quantity: 100 },
+        ],
+      },
+    ],
+  },
+  {
+    category_id: 2,
+    category_name: '分类1',
+    category_dishes: [
+      {
+        dish_id: 2,
+        category_id: 2,
         dish_name: '番茄炒蛋',
         dish_price: 18,
         dish_monthSales: 100,
@@ -79,55 +110,6 @@ const categories = ref([
           { name: '鸡蛋', quantity: 100 },
         ],
       },
-      { id: 2, name: '商品1-2' },
-      { id: 3, name: '商品1-3' },
-      { id: 4, name: '商品1-4' },
-      { id: 5, name: '商品1-5' },
-      { id: 6, name: '商品1-6' },
-      { id: 7, name: '商品1-7' },
-      { id: 8, name: '商品1-8' },
-      { id: 9, name: '商品1-9' },
-    ],
-  },
-  {
-    id: 2,
-    name: '分类2',
-    products: [
-      { id: 13, name: '商品2-1' },
-      { id: 14, name: '商品2-2' },
-      { id: 15, name: '商品2-3' },
-      { id: 16, name: '商品2-4' },
-      { id: 17, name: '商品2-5' },
-      { id: 18, name: '商品2-6' },
-      { id: 19, name: '商品2-7' },
-      { id: 20, name: '商品2-8' },
-      { id: 21, name: '商品2-9' },
-      { id: 22, name: '商品2-10' },
-      { id: 23, name: '商品2-11' },
-      { id: 24, name: '商品2-12' },
-      { id: 25, name: '商品2-13' },
-      { id: 26, name: '商品2-14' },
-      { id: 27, name: '商品2-15' },
-      { id: 28, name: '商品2-16' },
-      { id: 29, name: '商品2-17' },
-      { id: 30, name: '商品2-18' },
-      { id: 31, name: '商品2-19' },
-      { id: 32, name: '商品2-20' },
-    ],
-  },
-  {
-    id: 3,
-    name: '分类4',
-    products: [
-      { id: 441, name: '商品1-1' },
-      { id: 442, name: '商品1-2' },
-      { id: 443, name: '商品1-3' },
-      { id: 444, name: '商品1-4' },
-      { id: 445, name: '商品1-5' },
-      { id: 446, name: '商品1-6' },
-      { id: 447, name: '商品1-7' },
-      { id: 448, name: '商品1-8' },
-      { id: 449, name: '商品1-9' },
     ],
   },
   // 添加更多分类和商品
@@ -181,12 +163,12 @@ onMounted(() => {
 });
 </script>
 <style scope lang="scss">
-.menu {
+.dish {
   height: 100%;
   box-sizing: border-box;
   position: relative;
   .top-container {
-    background-color: #fff;
+    background: linear-gradient(145deg, #daf3db, #c0eec2);
     position: fixed;
     top: 0;
     left: 0;
@@ -199,9 +181,14 @@ onMounted(() => {
     .nut-searchbar {
       padding-bottom: 0;
       padding-top: 0;
+      background-color: transparent;
+    }
+    .search-btn {
+      color: #fff;
+      background-color: var(--nut-primary-color);
     }
   }
-  .menu-container {
+  .dish-container {
     display: flex;
     height: 100%;
     width: 100vw;
