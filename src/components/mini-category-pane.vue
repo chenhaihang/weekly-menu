@@ -21,6 +21,7 @@
         class="dish-item"
         v-for="dish in category.category_dishes"
         :key="dish.dish_id"
+        @click="goToDishDetail(dish.dish_id)"
       >
         <view class="dish-image">
           <image :src="dish.dish_image_url" alt="" srcset="" />
@@ -89,6 +90,12 @@ const calculateCategoryHeights = () => {
     console.log('Category Heights:', categoryHeights.value);
   });
 };
+
+function goToDishDetail(dishId: number) {
+  Taro.navigateTo({
+    url: `/pages/dish/dishEdit?dishId=${dishId}`,
+  });
+}
 
 const onScroll = (e) => {
   console.log(

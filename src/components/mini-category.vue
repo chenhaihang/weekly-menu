@@ -30,7 +30,7 @@ const scrollToCategory = defineModel('scrollToCategory');
 
 const userStore = useUserStore();
 
-const emit = defineEmits(['update:activeCategory', 'click-tab']);
+const emit = defineEmits(['update:activeCategory', 'click-item']);
 
 function clickCategory(index) {
   activeCategory.value = index;
@@ -39,7 +39,7 @@ function clickCategory(index) {
     scrollToCategory.value = false;
   }, 500);
 
-  emit('click-tab', index);
+  emit('click-item', index);
 }
 </script>
 
