@@ -63,57 +63,9 @@ import Taro from '@tarojs/taro';
 import MiniCategory from '@/components/mini-category.vue';
 import MiniCategoryPane from '@/components/mini-category-pane.vue';
 import { Category } from '@/types/dish';
-const categories = ref([
-  {
-    category_id: 1,
-    category_name: '分类1',
-    category_dishes: [
-      {
-        dish_id: 1,
-        category_id: 1,
-        dish_name: '番茄炒蛋',
-        dish_price: 18,
-        dish_monthSales: 100,
-        dish_kal: 1100,
-        dish_image_url: 'https://img.yzcdn.cn/vant/apple-2.jpg',
-        dish_description: '这是一条菜品描述',
-        dish_notes: '这是一条备注',
-        dish_created_at: '2024-01-01 12:34:52',
-        dish_updated_at: '2024-04-01 12:34:52',
-        dish_rating: 5,
-        dish_ingredients: [
-          { name: '番茄', quantity: 100 },
-          { name: '鸡蛋', quantity: 100 },
-        ],
-      },
-    ],
-  },
-  {
-    category_id: 2,
-    category_name: '分类1',
-    category_dishes: [
-      {
-        dish_id: 2,
-        category_id: 2,
-        dish_name: '番茄炒蛋',
-        dish_price: 18,
-        dish_monthSales: 100,
-        dish_kal: 1100,
-        dish_image_url: 'https://img.yzcdn.cn/vant/apple-1.jpg',
-        dish_description: '这是一条菜品描述',
-        dish_notes: '这是一条备注',
-        dish_created_at: '2024-01-01 12:34:52',
-        dish_updated_at: '2024-04-01 12:34:52',
-        dish_rating: 5,
-        dish_ingredients: [
-          { name: '番茄', quantity: 100 },
-          { name: '鸡蛋', quantity: 100 },
-        ],
-      },
-    ],
-  },
-  // 添加更多分类和商品
-] as Category[]);
+import { useDishStore } from '@/stores/dish';
+const dishStore = useDishStore();
+const categories = ref(dishStore.getCategoryList);
 
 const scrollToCategory = ref(false);
 const activeCategory = ref(0);

@@ -44,7 +44,7 @@ export const useUserStore = defineStore('user', {
     getOpenId: (state) => state.openId, // 获取openid
   },
   actions: {
-    setOpenId(openId: string) {
+    setOpenId(openId: number) {
       this.openId = openId
     },
     setMenuButton(menuButton: MenuButton) {
