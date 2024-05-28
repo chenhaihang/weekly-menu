@@ -16,9 +16,14 @@ export interface Dish {
   dish_created_at: string
   dish_updated_at: string
   dish_rating: number
+  dish_steps: DishStep[]
   dish_ingredients: Ingredient[]
 }
 export interface Ingredient {
   name: string
   quantity: number
+}
+export interface DishStep {
+  step_description: string
+  step_img_url: string
 } 

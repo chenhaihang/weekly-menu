@@ -25,6 +25,9 @@ export const useDishStore = defineStore('dish', {
             dish_created_at: '2024-01-01 12:34:52',
             dish_updated_at: '2024-04-01 12:34:52',
             dish_rating: 5,
+            dish_steps: [
+              { step_description: '这是一条步骤描述', step_img_url: 'https://img.yzcdn.cn/vant/apple-1.jpg' },
+            ],
             dish_ingredients: [
               { name: '番茄', quantity: 100 },
               { name: '鸡蛋', quantity: 100 },
@@ -49,6 +52,9 @@ export const useDishStore = defineStore('dish', {
             dish_created_at: '2024-01-01 12:34:52',
             dish_updated_at: '2024-04-01 12:34:52',
             dish_rating: 5,
+            dish_steps: [
+              { step_description: '这是一条步骤描述', step_img_url: 'https://img.yzcdn.cn/vant/apple-1.jpg' },
+            ],
             dish_ingredients: [
               { name: '番茄', quantity: 100 },
               { name: '鸡蛋', quantity: 100 },
