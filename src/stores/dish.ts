@@ -32,6 +32,25 @@ export const useDishStore = defineStore('dish', {
               { name: '番茄', quantity: 100 },
               { name: '鸡蛋', quantity: 100 },
             ],
+            dish_energy: {
+              calories: {
+                value: '100',
+                unit: '千卡'
+              },
+
+              protein: {
+                value: '100',
+                unit: '克'
+              },
+              fat: {
+                value: '100',
+                unit: '克'
+              },
+              carbs: {
+                value: '100',
+                unit: '克'
+              }
+            }
           },
         ],
       },
@@ -59,6 +78,25 @@ export const useDishStore = defineStore('dish', {
               { name: '番茄', quantity: 100 },
               { name: '鸡蛋', quantity: 100 },
             ],
+            dish_energy: {
+              calories: {
+                value: '100',
+                unit: '千卡'
+              },
+
+              protein: {
+                value: '100',
+                unit: '克'
+              },
+              fat: {
+                value: '100',
+                unit: '克'
+              },
+              carbs: {
+                value: '100',
+                unit: '克'
+              }
+            }
           },
         ],
       },

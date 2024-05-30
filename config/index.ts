@@ -1,6 +1,7 @@
 import Components from 'unplugin-vue-components/webpack';
 import NutUIResolver from '@nutui/auto-import-resolver';
 const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss/webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 import path from 'path';
 const config = {
   projectName: 'weekly-menu',
@@ -46,6 +47,10 @@ const config = {
     data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
   },
   mini: {
+    // miniCssExtractPluginOption: {
+    //   //忽略css文件引入顺序
+    //   ignoreOrder: true
+    // },
     webpackChain(chain) {
       chain.plugin('unplugin-vue-components').use(Components({
         resolvers: [

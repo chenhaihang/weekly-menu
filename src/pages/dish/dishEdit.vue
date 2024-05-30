@@ -73,6 +73,45 @@
         </div>
       </div>
     </div>
+    <div class="advanced-setup-container">
+      <nut-collapse>
+        <nut-collapse-item name="name1" title="高级设置">
+          <nut-form>
+            <nut-form-item label="卡路里">
+              <nut-input
+                v-model="dishInfo.dish_energy.calories.value"
+                placeholder="卡路里/kcal"
+                type="text"
+              />
+            </nut-form-item>
+            <nut-form-item label="蛋白质">
+              <nut-input
+                v-model="dishInfo.dish_energy.protein.value"
+                placeholder="蛋白质/g"
+                type="text"
+              />
+            </nut-form-item>
+            <nut-form-item label="碳水化合物">
+              <nut-input
+                v-model="dishInfo.dish_energy.carbs.value"
+                placeholder="碳水化合物/g"
+                type="text"
+              />
+            </nut-form-item>
+            <nut-form-item label="脂肪">
+              <nut-input
+                v-model="dishInfo.dish_energy.fat.value"
+                placeholder="脂肪/g"
+                type="text"
+              />
+            </nut-form-item>
+          </nut-form>
+        </nut-collapse-item>
+      </nut-collapse>
+    </div>
+    <div class="dish-submit-container mt-2">
+      <nut-button type="primary" block @click="submitBtn">保存菜谱</nut-button>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -100,6 +139,25 @@ const dishInfo = reactive({
       step_img_url: '',
     },
   ],
+  dish_energy: {
+    calories: {
+      value: '',
+      unit: '千卡',
+    },
+
+    protein: {
+      value: '',
+      unit: '克',
+    },
+    fat: {
+      value: '',
+      unit: '克',
+    },
+    carbs: {
+      value: '',
+      unit: '克',
+    },
+  },
 });
 const actionSheetShow = ref(false);
 const dishStore = useDishStore();
@@ -127,6 +185,10 @@ function addDishStep() {
     step_img_url: '',
   });
 }
+
+function submitBtn() {
+  console.log('🚀 ~ file: dishEdit.vue:68 ~ submitBtn ~ dishInfo:', dishInfo);
+}
 // ------lifecycle hooks------
 </script>
 <style scope lang="scss">
@@ -137,6 +199,8 @@ function addDishStep() {
     .dish-input {
       width: 50%;
     }
+  }
+  .dish-submit-container {
   }
 }
 </style>

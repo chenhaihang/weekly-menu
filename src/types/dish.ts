@@ -18,7 +18,21 @@ export interface Dish {
   dish_rating: number
   dish_steps: DishStep[]
   dish_ingredients: Ingredient[]
+  dish_energy: DishEnergy
 }
+
+export interface DishEnergy {
+  calories: DishEnergyItem
+  protein: DishEnergyItem
+  fat: DishEnergyItem
+  carbs: DishEnergyItem
+}
+
+export interface DishEnergyItem {
+  value: string
+  unit: string
+}
+
 export interface Ingredient {
   name: string
   quantity: number

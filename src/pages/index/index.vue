@@ -19,9 +19,9 @@
 
 <script setup>
 import { ref, h } from 'vue';
-import { Home, Category, Find, Cart, My } from '@nutui/icons-vue-taro';
 import MyIndex from '@/pages/my/index.vue';
 import DishIndex from '@/pages/dish/index.vue';
+import { Home, Category, Find, Cart, My } from '@nutui/icons-vue-taro';
 
 const List = [
   {
