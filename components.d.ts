@@ -23,5 +23,6 @@ declare module 'vue' {
     NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
     NutTextarea: typeof import('@nutui/nutui-taro')['Textarea']
     NutUploader: typeof import('@nutui/nutui-taro')['Uploader']
+    PhotoUploader: typeof import('./src/components/photo-uploader.vue')['default']
   }
 }

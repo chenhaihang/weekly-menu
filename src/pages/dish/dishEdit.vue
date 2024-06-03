@@ -59,7 +59,13 @@
           :key="index"
         >
           <view class="dish-step-name">步骤{{ index + 1 }}</view>
-          <image :src="item.step_img_url" alt="" srcset="" />
+          <photoUploader
+            :src="item.step_img_url"
+            :index="index"
+            :height="320"
+            @onUpload="photoUploaderChange"
+            @onDelete="photoUploaderDelete"
+          ></photoUploader>
           <nut-textarea
             v-model="item.step_description"
             :max-length="120"
@@ -118,6 +124,7 @@
 // ------import------
 import { ref, reactive } from 'vue';
 import { useDishStore } from '@/stores/dish';
+import photoUploader from '@/components/photo-uploader.vue';
 // import { Category } from '@/types/dish';
 // ------props------
 // ------data------
@@ -166,6 +173,19 @@ console.log('🚀 ~ file: dishEdit.vue:39 ~ columns:', columns);
 // ------computed------
 // ------watch------
 // ------methods------
+function photoUploaderChange({ url, index }) {
+  console.log(
+    '🚀 ~ file: dishEdit.vue:172 ~ photoUploaderChange ~ url, index:',
+    url,
+    index
+  );
+  dishInfo.dish_steps[index].step_img_url = url;
+}
+
+function photoUploaderDelete(index) {
+  dishInfo.dish_steps[index].step_img_url = '';
+}
+
 function confirm(item) {
   console.log('🚀 ~ file: dishEdit.vue:43 ~ confirm ~ item:', item);
   dishInfo.dish_category = item.selectedOptions[0].text;
@@ -200,6 +220,10 @@ function submitBtn() {
       width: 50%;
     }
   }
+  .photo-uploader {
+    margin-bottom: 30rpx;
+  }
+
   .dish-submit-container {
   }
 }
