@@ -50,8 +50,10 @@
       </mini-category>
     </div>
     <div class="action-container" id="actionContainerId">
-      <nut-button type="default">分类管理</nut-button>
-      <nut-button type="primary">添加商品</nut-button>
+      <nut-button type="default" @click="goDishCategoryEdit"
+        >分类管理</nut-button
+      >
+      <nut-button type="primary" @click="goAddToDish">添加商品</nut-button>
     </div>
   </div>
 </template>
@@ -96,6 +98,17 @@ const change = (index) => {};
 const clickTab = (index) => {
   scrollIntoView.value = `category${index}`;
 };
+
+function goDishCategoryEdit() {
+  Taro.navigateTo({
+    url: '/pages/dish/dishCategoryEdit',
+  });
+}
+function goAddToDish() {
+  Taro.navigateTo({
+    url: `/pages/dish/dishEdit`,
+  });
+}
 // ------lifecycle hooks------
 onMounted(() => {
   Taro.createSelectorQuery()
