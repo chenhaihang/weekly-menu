@@ -3,3 +3,14 @@ page {
   --nut-tabbar-height: 100rpx;
   --nut-primary-color: #4caf50;
 }
+
+.fixed-bottom-container {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  height: var(--nut-tabbar-height);
+  padding: 30px;
+  text-align: center;
+  box-sizing: border-box;
+}

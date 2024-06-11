@@ -22,7 +22,6 @@
 </template>
 <script setup lang="ts">
 // ------import------
-import { ref, reactive } from 'vue';
 import { IconFont } from '@nutui/icons-vue-taro';
 // ------props------
 const emit = defineEmits(['onUpload', 'onDelete']);
